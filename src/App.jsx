@@ -1,45 +1,45 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <>
+      <Parallax pages={2} style={{ top: '0', left: '0' }}>
+        <ParallaxLayer
+          offset={0}
+          speed={2.5}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <p>Scroll down</p>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={1}
+          speed={2}
+          style={{ backgroundColor: '#e99754' }}
+        />
+
+        <ParallaxLayer
+          offset={1}
+          speed={0.5}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+          }}
+        >
+          <p>Scroll up</p>
+        </ParallaxLayer>
+      </Parallax>
+    </>
+  );
 }
 
-export default App
+export default App;
