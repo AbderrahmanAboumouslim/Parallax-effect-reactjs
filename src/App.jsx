@@ -1,47 +1,55 @@
-import './App.css';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import { useSpring, animated } from 'react-spring';
-import { useState } from 'react';
+import moon from './assets/moon.png';
+import jazira from './assets/jaziraton.jpg';
+import giphy from './assets/giphy.gif';
+import { useRef } from 'react';
 
 function App() {
-  const [clicked, setClicked] = useState(false);
-  const fade = useSpring({ opacity: clicked ? 0 : 1 });
-
+  const ref = useRef();
   return (
     <>
-      <button onClick={() => setClicked(!clicked)}>TEST FADE</button>
-      <Parallax pages={2}>
+      <Parallax pages={4} ref={ref}>
         <ParallaxLayer
           offset={0}
-          speed={2.5}
+          speed={1}
+          factor={2}
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            backgroundImage: `url(${moon})`,
+            backgroundSize: 'cover',
           }}
-        >
-          <animated.div style={fade} className="box-1">
-            box 1
-          </animated.div>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={1}
-          speed={2}
-          style={{ backgroundColor: '#e99754' }}
         />
 
         <ParallaxLayer
-          offset={1}
-          speed={0.5}
+          offset={2}
+          speed={1}
+          factor={4}
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: 'white',
+            backgroundImage: `url(${jazira})`,
+            backgroundSize: 'cover',
           }}
+        ></ParallaxLayer>
+
+        <ParallaxLayer
+          sticky={{ start: 0.9, end: 2.5 }}
+          style={{ textAlign: 'center' }}
         >
-          <div className="box-1">box 2</div>
+          <img src={giphy} />
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={0.2}
+          speed={0.05}
+          onClick={() => ref.current.scrollTo(3)}
+        >
+          <h2>Welcome to my website</h2>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={3}
+          speed={2}
+          onClick={() => ref.current.scrollTo(0)}
+        >
+          <h2>Hi Mom!</h2>
         </ParallaxLayer>
       </Parallax>
     </>
