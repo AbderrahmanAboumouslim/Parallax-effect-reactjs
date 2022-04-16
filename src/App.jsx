@@ -2,11 +2,12 @@ import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import Roadmap from './Roadmap';
 
 function App() {
   return (
     <>
-      <Parallax pages={2} style={{ top: '0', left: '0' }}>
+      <Parallax pages={2}>
         <ParallaxLayer
           offset={0}
           speed={2.5}
@@ -16,7 +17,7 @@ function App() {
             alignItems: 'center',
           }}
         >
-          <p>Scroll down</p>
+          <div className="box-1">box 1</div>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -35,7 +36,7 @@ function App() {
             color: 'white',
           }}
         >
-          <p>Scroll up</p>
+          <div className="box-1">box 2</div>
         </ParallaxLayer>
       </Parallax>
     </>
