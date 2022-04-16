@@ -1,12 +1,15 @@
-import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import Roadmap from './Roadmap';
+import { useSpring, animated } from 'react-spring';
+import { useState } from 'react';
 
 function App() {
+  const [clicked, setClicked] = useState(false);
+  const fade = useSpring({ opacity: clicked ? 0 : 1 });
+
   return (
     <>
+      <button onClick={() => setClicked(!clicked)}>TEST FADE</button>
       <Parallax pages={2}>
         <ParallaxLayer
           offset={0}
@@ -17,7 +20,9 @@ function App() {
             alignItems: 'center',
           }}
         >
-          <div className="box-1">box 1</div>
+          <animated.div style={fade} className="box-1">
+            box 1
+          </animated.div>
         </ParallaxLayer>
 
         <ParallaxLayer
