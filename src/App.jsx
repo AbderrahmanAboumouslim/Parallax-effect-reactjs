@@ -1,6 +1,6 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import moon from './assets/moon.png';
-import jazira from './assets/jaziraton.jpg';
+import dark from './assets/dark.jpg';
 import giphy from './assets/giphy.gif';
 import { useRef } from 'react';
 
@@ -24,7 +24,7 @@ function App() {
           speed={1}
           factor={4}
           style={{
-            backgroundImage: `url(${jazira})`,
+            backgroundImage: `url(${dark})`,
             backgroundSize: 'cover',
           }}
         ></ParallaxLayer>
