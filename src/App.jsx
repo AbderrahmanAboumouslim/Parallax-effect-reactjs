@@ -2,13 +2,16 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import moon from './assets/moon.png';
 import dark from './assets/dark.jpg';
 import giphy from './assets/giphy.gif';
-import { useRef } from 'react';
+// date
+import moment from 'moment';
+// countdown
+import CountdownTimer from 'react-awesome-countdowntimer';
 
 function App() {
-  const ref = useRef();
   return (
-    <>
-      <Parallax pages={4} ref={ref}>
+    <div>
+      <CountdownTimer endDate={moment('04/20/2022 23:29:00')} />
+      {/* <Parallax pages={4}>
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -36,23 +39,15 @@ function App() {
           <img src={giphy} />
         </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={0.2}
-          speed={0.05}
-          onClick={() => ref.current.scrollTo(3)}
-        >
+        <ParallaxLayer offset={0.2} speed={0.05}>
           <h2>Welcome to my website</h2>
         </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={3}
-          speed={2}
-          onClick={() => ref.current.scrollTo(0)}
-        >
+        <ParallaxLayer offset={3} speed={2}>
           <h2>Hi Mom!</h2>
         </ParallaxLayer>
-      </Parallax>
-    </>
+      </Parallax> */}
+    </div>
   );
 }
 
